@@ -8,6 +8,7 @@ import Modal from "@/components/ui/Modal";
 import AddJobForm from "@/components/AddJobForm";
 import EditJobForm from "@/components/EditJobForm";
 import JobSearchBar, { JobSearchParams } from "@/components/JobSearchBar";
+import ReceiptButtons from "@/components/ReceiptButtons";
 import { WorkBadge, PaymentBadge } from "@/components/ui/Badge";
 import { CustomerDetail, Job } from "@/types";
 import { ArrowLeft, Plus, Pencil, Phone, Mail, MapPin } from "lucide-react";
@@ -82,7 +83,7 @@ export default function CustomerDetailPage() {
 
       {/* Customer Info Card */}
       <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-[#0a1e4e]">{customer.name}</h1>
             <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1.5 text-sm text-slate-500">
@@ -92,13 +93,16 @@ export default function CustomerDetailPage() {
             </div>
           </div>
 
-          <button
-            onClick={() => setAddJobOpen(true)}
-            className="flex items-center gap-2 rounded-xl bg-[#0a1e4e] px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#0a1e4e]/20 hover:bg-[#0d2563]"
-          >
-            <Plus size={16} />
-            Add Job
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <ReceiptButtons customer={customer} />
+            <button
+              onClick={() => setAddJobOpen(true)}
+              className="flex items-center gap-2 rounded-xl bg-[#0a1e4e] px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#0a1e4e]/20 hover:bg-[#0d2563]"
+            >
+              <Plus size={16} />
+              Add Job
+            </button>
+          </div>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">

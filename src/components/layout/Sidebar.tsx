@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { removeToken } from "@/lib/auth";
-import { LayoutDashboard, Users, LogOut, Briefcase } from "lucide-react";
+import { LayoutDashboard, Users, Wallet, LogOut, Briefcase } from "lucide-react";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -17,6 +17,7 @@ export default function Sidebar() {
   const links = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/customers", label: "Customers", icon: Users },
+    { href: "/expenses", label: "Expenses", icon: Wallet },
   ];
 
   return (

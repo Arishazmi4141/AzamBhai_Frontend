@@ -42,12 +42,38 @@ export interface CustomerDetail {
   jobs: Job[];
 }
 
+// ===== Apni existing "@/types" file mein ye add karo =====
+
+export interface Expense {
+  id: string;
+  paidTo: string;
+  purpose: string;
+  amount: number;
+  expenseDate: string; // "yyyy-MM-dd"
+  note?: string;
+  createdAt: string;
+}
+
+// DashboardResponse ko is se REPLACE karo (purane fields + naye fields)
 export interface DashboardResponse {
   totalDRRemaining: number;
   totalCRPaid: number;
-  monthlyRevenue: number;
+  totalJobAmount: number;
+
   weeklyRevenue: number;
+  monthlyRevenue: number;
   yearlyRevenue: number;
+
+  totalExpenses: number;
+  weeklyExpenses: number;
+  monthlyExpenses: number;
+  yearlyExpenses: number;
+
+  netBalance: number;
+  weeklyNet: number;
+  monthlyNet: number;
+  yearlyNet: number;
+
   pendingJobsCount: number;
   doneJobsCount: number;
 }
